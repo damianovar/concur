@@ -1,0 +1,60 @@
+\begin{tikzpicture}
+[
+	Concept/.style	= {font = \scriptsize, align = center, anchor = base, minimum height = 1cm},
+	row sep			= {1cm,between origins},
+	column sep		= {1.9cm,between origins},
+	column 1/.style	= {column sep = 1cm, nodes = {fill = black!00!white}, },
+]
+
+	\matrix (M)
+	[
+		matrix of nodes,
+		nodes					= {font = \footnotesize, inner sep = 0cm, text height = 0.3cm, text width = 0.65cm, align = center, anchor = base},
+		nodes in empty cells	= true,
+	]
+	{
+		45\%  & 2 & 2 &   &   &   &   & 3 \\
+		20\%  &   &   & 2 & 1 &   &   & 2 \\
+		35\%  &   & 1 &   & 2 & 2 &   & 3 \\
+	};
+
+	\node (p0) [Concept, above = 0.5cm of M-1-1, minimum width = 1.7cm] {teaching \\ \phantom{g} time \phantom{g}};
+	\node (p1) [Concept, above = 0.5cm of M-1-2] {vector \\ spaces};
+	\node (p2) [Concept, above = 0.5cm of M-1-3] {linearity};
+	\node (p3) [Concept, above = 0.5cm of M-1-4] {matrix-vector \\ multiplication};
+	%
+	\node (p4) [Concept, above = 0.5cm of M-1-5] {eigenvalues};
+	\node (p5) [Concept, above = 0.5cm of M-1-6] {characteristic \\ polynomials};
+	\node (p6) [Concept, above = 0.5cm of M-1-7] {compute \\ \phantom{g} Jordan forms \phantom{g}};
+	%
+	\node (p7) [Concept, above = 0.5cm of M-1-8, minimum width = 1.7cm] {intended \\ final knowledge \\ level};
+	%
+	\node (c1) [Concept, left = 0.5cm of M-1-1] {eigenvalues};
+	\node (c2) [Concept, left = 0.5cm of M-2-1] {characteristic \\ polynomials};
+	\node (c3) [Concept, left = 0.5cm of M-3-1] {compute \\ Jordan forms};
+
+	\node (auxA) [coordinate, above = 0.5cm of p1.west, xshift = +0.1cm] {};
+	\node (auxB) [coordinate, above = 0.5cm of p3.east, xshift = -0.1cm] {};
+	\node (auxC) [coordinate, above = 0.5cm of p4.west, xshift = +0.1cm] {};
+	\node (auxD) [coordinate, above = 0.5cm of p6.east, xshift = -0.1cm] {};
+	%
+	\draw [decorate, decoration = brace, draw = black!50!white] (auxA) -- (auxB) node [above, pos = 0.5, font = \scriptsize, text = black!50!white] {prerequisite concepts};
+	%
+	\draw [decorate, decoration = brace, draw = black!50!white] (auxC) -- (auxD) node [above, pos = 0.5, font = \scriptsize, text = black!50!white] {developed concepts};
+
+	% auxiliary nodes to draw the matrix
+	\node (MM11) [coordinate] at (c1.north east) {};
+	\node (MM21) [coordinate] at (c3.south east) {};
+	\node (MM12) [coordinate] at ($(p0.north east)!(c1.north east)!(p0.south east)$) {};
+	\node (MM22) [coordinate] at ($(p0.north east)!(c3.south east)!(p0.south east)$) {};
+	\node (MM13) [coordinate] at ($(p6.north east)!(c1.north east)!(p6.south east)$) {};
+	\node (MM23) [coordinate] at ($(p6.north east)!(c3.south east)!(p6.south east)$) {};
+
+	\draw [solid] (MM11) -- (MM21);
+	\draw [solid] (MM21) -- (MM23);
+	\draw [solid] (MM23) -- (MM13);
+	\draw [solid] (MM13) -- (MM11);
+	\draw [solid] (MM12) -- (MM22);
+
+\end{tikzpicture}
+

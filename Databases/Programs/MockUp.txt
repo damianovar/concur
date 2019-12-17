@@ -1,0 +1,7 @@
+coursecode	version	link
+CourseA	1	https://docs.google.com/spreadsheets/d/1uaEELsXnd34TjLypaIn8kJsg7LXXKfjDVyY8EeyCTyI/edit
+CourseB	1	https://docs.google.com/spreadsheets/d/1t8tcO3p48fNJr-yaDTYlS6RnLOPamAgnpOaSIHhPmLY/edit
+CourseC	1	https://docs.google.com/spreadsheets/d/1UfSmENOU2_lkhrA58SLXUxqpv0jCYGYnyD-ZYEjXam4/edit
+CourseD	1	https://docs.google.com/spreadsheets/d/1jWxuxY1IlIFvdTco6sWxfJwdo5jYCUeFohh3BnnrBiw/edit
+CourseE	1	https://docs.google.com/spreadsheets/d/1tCNnaXZ6YFi9J-hoCXf-wagwIgxZ1Mg98fqE0T41hVA/edit
+

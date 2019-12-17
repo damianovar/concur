@@ -1,0 +1,54 @@
+\begin{tikzpicture}
+[
+% 	transform canvas={scale=0.85},
+	ILO/.style	= {circle, draw = black!50!white, fill = black!10!white, minimum size = 0.4cm, inner sep = 0cm, font = \scriptsize},
+	pre/.style	= {ILO, draw = black, fill = white},
+	comment/.style	= {font = \footnotesize},
+	node distance = 0.8cm and 0.6cm,
+	every path/.style = {-latex, thick, shorten < = 0.1cm, shorten > = 0.1cm},
+]
+
+	\node (pre1) [ILO] {};
+	\node (pre2) [ILO, below = of pre1] {};
+	\node (pre3) [ILO, below = of pre2] {};
+	%
+	\node (ILO1) [ILO, right = 2cm of pre1] {};
+	\node (ILO2) [ILO, below = of ILO1] {};
+	\node (ILO3) [ILO, below = of ILO2] {};
+	%
+	\node (ILO11) [ILO, right = 2cm of ILO1] {};
+	\node (ILO12) [ILO, below = of ILO11] {};
+	\node (ILO13) [ILO, below = of ILO12] {};
+	%
+	\node (ILO21) [ILO, right = 2cm of ILO11] {};
+	\node (ILO22) [ILO, below = of ILO21] {};
+	\node (ILO23) [ILO, below = of ILO22] {};
+
+	\draw (pre1) -- (ILO1);
+	\draw (pre2) -- (ILO1);
+	\draw (pre2) -- (ILO3);
+	\draw (pre3) -- (ILO2);
+	%
+	\draw (ILO1) -- (ILO2);
+	\draw [out = 235, in = 125] (ILO1) to (ILO3);
+	\draw (ILO2) -- (ILO3);
+
+	\draw (ILO1) -- (ILO12);
+	\draw (ILO2) -- (ILO11);
+	\draw (ILO2) -- (ILO12);
+	\draw (ILO3) -- (ILO13);
+	%
+	\draw (ILO12) -- (ILO11);
+% 	\draw [out = 235, in = 125] (ILO11) to (ILO13);
+	\draw (ILO12) -- (ILO13);
+
+	\draw (ILO11) -- (ILO22);
+	\draw (ILO12) -- (ILO21);
+	\draw (ILO12) -- (ILO23);
+	\draw (ILO13) -- (ILO23);
+	%
+% 	\draw (ILO21) -- (ILO22);
+	\draw [out = 235, in = 125] (ILO23) to (ILO21);
+	\draw (ILO23) -- (ILO22);
+
+\end{tikzpicture}

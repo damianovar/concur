@@ -1,0 +1,44 @@
+\begin{tikzpicture}
+[
+	ILO/.style	= {circle, draw = black!50!white, fill = black!10!white, minimum size = 0.7cm, inner sep = 0cm, font = \scriptsize},
+	pre/.style	= {ILO, draw = black, fill = white},
+	comment/.style	= {font = \footnotesize},
+	node distance = 0.8cm and 0.8cm,
+	every path/.style = {-latex, thick, shorten < = 0.1cm, shorten > = 0.1cm},
+]
+
+	\node (pre1) [pre] {};
+	\node (pre2) [pre, below = of pre1] {};
+	\node (pre3) [pre, below = of pre2] {};
+	%
+	\node (ILO1) [ILO, right = 2cm of pre1] {45\%};
+	\node (ILO2) [ILO, below = of ILO1] {20\%};
+	\node (ILO3) [ILO, below = of ILO2] {35\%};
+	%
+	\node (aux1) [coordinate, right = 4cm of ILO1] {};
+	\node (aux2) [coordinate, right = 4cm of ILO2] {};
+	\node (aux3) [coordinate, right = 4cm of ILO3] {};
+
+	\node [comment, above left = 0cm of pre1] {vector spaces};
+	\node [comment, above left = 0cm of pre2] {linearity};
+	\node [comment, above left = 0cm of pre3] {matrix-vector multiplications};
+	%
+	\node [comment, above right = 0cm of ILO1] {eigenvalues};
+	\node [comment, above right = 0cm of ILO2] {characteristic polynomials};
+	\node [comment, above right = 0cm of ILO3] {compute Jordan forms};
+
+	\draw (pre1) -- (ILO1) node [pos = 0.25, above] {2};
+	\draw (pre2) -- (ILO1) node [pos = 0.25, above] {2};
+	\draw (pre2) -- (ILO3) node [pos = 0.25, above] {1};
+	\draw (pre3) -- (ILO2) node [pos = 0.25, below] {2};
+
+	\draw (ILO1) -- (ILO2) node [pos = 0.5, right] {1};
+	\draw [out = 235, in = 125] (ILO1) to node [pos = 0.35, left] {2} (ILO3);
+	\draw (ILO2) -- (ILO3) node [pos = 0.5, right] {2};
+
+	\draw (ILO1) -- (aux1) node [pos = 1.0, right] {3};
+	\draw (ILO2) -- (aux2) node [pos = 1.0, right] {2};
+	\draw (ILO3) -- (aux3) node [pos = 1.0, right] {3};
+
+
+\end{tikzpicture}

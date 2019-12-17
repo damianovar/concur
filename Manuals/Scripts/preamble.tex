@@ -1,0 +1,43 @@
+\documentclass{article}
+\usepackage[margin = 2cm]{geometry}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{acronym}
+\usepackage[hidelinks]{hyperref}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\theoremstyle{definition}
+\newtheorem{example}{Example}[section]
+\graphicspath{{../Images/}}
+
+\usepackage{tikz} % ------------------------------- %
+\usetikzlibrary{arrows}								%
+\usetikzlibrary{calc}								%
+\usetikzlibrary{decorations.footprints}				%
+\usetikzlibrary{decorations.pathmorphing}			%
+\usetikzlibrary{decorations.text}					%
+\usetikzlibrary{fadings}							%
+\usetikzlibrary{fit}								%
+\usetikzlibrary{intersections}						%
+\usetikzlibrary{matrix}								%
+\usetikzlibrary{mindmap}							%
+\usetikzlibrary{patterns}							%
+\usetikzlibrary{plotmarks}							%
+\usetikzlibrary{positioning}						%
+\usetikzlibrary{shadows}							%
+\usetikzlibrary{shapes.geometric}					%
+\usetikzlibrary{shapes}								%
+\usetikzlibrary{trees}								%
+\usepackage{pgfplots}								%
+\usepackage{pgfpages}								%
+\pgfplotsset{compat=newest} % --------------------- %
+
+\tikzstyle{block} = [draw, fill=green!50!cyan!15, rectangle, minimum height=3em, minimum width=4.5em, node distance=8em]
+\tikzstyle{file} = [draw, fill=orange!50!yellow!15, rectangle, node distance=5em]
+\tikzstyle{cloud} = [draw, fill=gray!20, ellipse, minimum height=3em, minimum width=4.5em, node distance=8em]
+
+\newcommand{\itemheader}[1]{\item \textbf{#1}}
+

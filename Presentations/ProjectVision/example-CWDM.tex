@@ -1,0 +1,88 @@
+ % Keys to support piece-wise uncovering of elements in TikZ pictures:
+  % \node[visible on=<5->](foo){Foo}
+  % \node[visible on=<{2,4}>](bar){Bar}   % put braces around comma expressions
+  %
+  % Internally works by setting opacity=0 when invisible, which has the 
+  % adavantage (compared to \node<5->(foo){Foo} that the node is always there, hence
+  % always consumes space plus that coordinate (foo) is always available.
+  %
+  % The actual command that implements the invisibility can be overriden
+  % by altering the style invisible. For instance \tikzsset{invisible/.style={opacity=0.2}}
+  % would dim the "invisible" parts. Alternatively, the color might be set to white, if the
+  % output driver does not support transparencies (e.g., PS) 
+  %
+  \tikzset{
+    invisible/.style={opacity=0},
+    visible on/.style={alt={#1{}{invisible}}},
+    alt/.code args={<#1>#2#3}{%
+      \alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}} % \pgfkeysalso doesn't change the path
+    },
+  }
+
+\begin{tikzpicture}
+[
+% 	transform canvas={scale=0.85},
+	Concept/.style	= {font = \scriptsize, align = center, anchor = base, minimum height = 1cm},
+	row sep			= {1cm,between origins},
+	column sep		= {1.9cm,between origins},
+	column 1/.style	= {column sep = 0.6cm, nodes = {fill = black!00!white}, },
+	column 2/.style	= {column sep = 0.7cm, nodes = {fill = black!00!white}, },
+	column 3/.style	= {column sep = 1.1cm, nodes = {fill = black!00!white}, },
+	column 4/.style	= {column sep = 1.1cm, nodes = {fill = black!00!white}, },
+	column 5/.style	= {column sep = 1.1cm, nodes = {fill = black!00!white}, },
+	column 6/.style	= {column sep = 1.1cm, nodes = {fill = black!00!white}, },
+	column 7/.style	= {column sep = 1.1cm, nodes = {fill = black!00!white}, },
+]
+
+	\matrix (M)
+	[
+		matrix of nodes,
+		nodes					= {font = \footnotesize, inner sep = 0cm, text height = 0.3cm, text width = 0.65cm, align = center, anchor = base},
+		nodes in empty cells	= true,
+	]
+	{
+		|[visible on = <6->]|45\%  & |[visible on = <2->]|2 & |[visible on = <2->]|2 &   &   &   &   & |[visible on = <5->]|3 \\
+		|[visible on = <6->]|20\%  &   &   & |[visible on = <3->]|2 & |[visible on = <3->]|1 &   &   & |[visible on = <5->]|2 \\
+		|[visible on = <6->]|35\%  &   & |[visible on = <4->]|1 &   & |[visible on = <4->]|2 & |[visible on = <4->]|2 &   & |[visible on = <5->]|3 \\
+	};
+
+	\node (p0) [Concept, above = 0.5cm of M-1-1, minimum width = 1.7cm, visible on = <6->] {teaching \\ \phantom{g} time \phantom{g}};
+	\node (p1) [Concept, above = 0.5cm of M-1-2] {vector \\ spaces};
+	\node (p2) [Concept, above = 0.5cm of M-1-3] {linearity};
+	\node (p3) [Concept, above = 0.5cm of M-1-4] {matrix-vector \\ multiplication};
+	%
+	\node (p4) [Concept, above = 0.5cm of M-1-5, visible on = <3->] {eigenvalues};
+	\node (p5) [Concept, above = 0.5cm of M-1-6, visible on = <3->] {characteristic \\ polynomials};
+	\node (p6) [Concept, above = 0.5cm of M-1-7, visible on = <3->] {compute \\ \phantom{g} Jordan forms \phantom{g}};
+	%
+	\node (p7) [Concept, above = 0.5cm of M-1-8, minimum width = 1.7cm, visible on = <5->] {intended \\ final \\ learning \\ level};
+	%
+	\node (c1) [Concept, left = 0.5cm of M-1-1] {eigenvalues};
+	\node (c2) [Concept, left = 0.5cm of M-2-1] {characteristic \\ polynomials};
+	\node (c3) [Concept, left = 0.5cm of M-3-1] {compute \\ Jordan forms};
+
+	\node (auxA) [coordinate, above = 0.5cm of p1.west, xshift = +0.1cm] {};
+	\node (auxB) [coordinate, above = 0.5cm of p3.east, xshift = -0.1cm] {};
+	\node (auxC) [coordinate, above = 0.5cm of p4.west, xshift = +0.1cm] {};
+	\node (auxD) [coordinate, above = 0.5cm of p6.east, xshift = -0.1cm] {};
+	%
+	\draw [decorate, decoration = brace, draw = black!50!white] (auxA) -- (auxB) node [above, pos = 0.5, font = \scriptsize, text = black!50!white] {prerequisite KCs};
+	%
+	\draw [decorate, decoration = brace, draw = black!50!white, visible on = <3->] (auxC) -- (auxD) node [above, pos = 0.5, font = \scriptsize, text = black!50!white, visible on = <3->] {developed KCs};
+
+	% auxiliary nodes to draw the matrix
+	\node (MM11) [coordinate] at (c1.north east) {};
+	\node (MM21) [coordinate] at (c3.south east) {};
+	\node (MM12) [coordinate] at ($(p0.north east)!(c1.north east)!(p0.south east)$) {};
+	\node (MM22) [coordinate] at ($(p0.north east)!(c3.south east)!(p0.south east)$) {};
+	\node (MM13) [coordinate] at ($(p6.north east)!(c1.north east)!(p6.south east)$) {};
+	\node (MM23) [coordinate] at ($(p6.north east)!(c3.south east)!(p6.south east)$) {};
+
+	\draw [solid] (MM11) -- (MM21);
+	\draw [solid] (MM21) -- (MM23);
+	\draw [solid] (MM23) -- (MM13);
+	\draw [solid] (MM13) -- (MM11);
+	\draw [solid] (MM12) -- (MM22);
+
+\end{tikzpicture}
+

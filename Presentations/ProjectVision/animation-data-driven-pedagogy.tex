@@ -1,0 +1,101 @@
+\begin{tikzpicture}
+[
+% 	transform canvas={scale=0.85},
+	ILO/.style	= {circle, draw = black!50!white, fill = black!10!white, minimum size = 0.4cm, inner sep = 0cm, font = \scriptsize},
+	node distance = 0.8cm and 0.6cm,
+	every path/.style = {-latex, thick, shorten < = 0.1cm, shorten > = 0.1cm},
+	body/.style = {isosceles triangle, draw, fill = white, shape border rotate = 90, minimum height = 1.1cm},
+	head/.style = {circle, draw, fill = white, minimum size = 0.73cm},
+	test/.style = {shape = tape, tape bend height = 0.15cm, draw, minimum height = 0.5cm, minimum width = 0.7cm, rotate = 90, tape bend top = out and in, tape bend bottom = out and in, fill = white},
+]
+
+	% prior 
+	\node (pre1) [ILO] {};
+	\node (pre2) [ILO, below = of pre1] {};
+	\node (pre3) [ILO, below = of pre2] {};
+	%
+	\node (ILO1) [ILO, right = 2cm of pre1] {};
+	\node (ILO2) [ILO, below = of ILO1] {};
+	\node (ILO3) [ILO, below = of ILO2] {};
+	%
+	\node (ILO11) [ILO, right = 2cm of ILO1] {};
+	\node (ILO12) [ILO, below = of ILO11] {};
+	\node (ILO13) [ILO, below = of ILO12] {};
+	%
+	\node (ILO21) [ILO, right = 2cm of ILO11] {};
+	\node (ILO22) [ILO, below = of ILO21] {};
+	\node (ILO23) [ILO, below = of ILO22] {};
+
+	% paths -- fixed
+	\draw (pre1) -- (ILO1);
+	\draw (pre2) -- (ILO1);
+	\draw (pre2) -- (ILO3);
+	\draw (pre3) -- (ILO2);
+	%
+	\draw (ILO1) -- (ILO2);
+	\draw [out = 235, in = 125] (ILO1) to (ILO3);
+	\draw (ILO2) -- (ILO3);
+
+	\draw (ILO1) -- (ILO12);
+	\draw (ILO2) -- (ILO11);
+	\draw (ILO2) -- (ILO12);
+	\draw (ILO3) -- (ILO13);
+	%
+	\draw (ILO12) -- (ILO11);
+	\draw (ILO12) -- (ILO13);
+
+	\draw (ILO11) -- (ILO22);
+	\draw (ILO12) -- (ILO21);
+	\draw (ILO12) -- (ILO23);
+	\draw (ILO13) -- (ILO23);
+	%
+	\draw [out = 235, in = 125] (ILO23) to (ILO21);
+	\draw (ILO23) -- (ILO22);
+
+	% student
+	\node (PA) [body, yshift = -2cm] at ($(ILO3)!0.5!(ILO13)$) {};
+	\node (HA) [head] at (PA.north) {};
+
+	\only<2-2>
+	{
+		\draw [very thick, dashed, out = 180, in = 270, shorten < = 0.4cm, shorten > = 0.4cm]
+		(PA) to node (CX) [pos = 0.5, solid, test] {} (pre3);
+		\node [above right = 0.2cm of CX] {exam X};
+		%
+		\node at (ILO1) [ILO, draw = green!60!black, fill = green!80!black] {};
+		\node at (ILO2) [ILO, draw = red!60!black, fill = red!80!black] {};
+		\node at (ILO3) [ILO, draw = yellow!60!black, fill = yellow!80!black] {};
+	}
+
+	\only<3-3>
+	{
+		\draw [very thick, dashed, out = 180, in = 270, shorten < = 0.4cm, shorten > = 0.4cm]
+		(PA) to node (CY) [pos = 0.5, solid, test] {} (pre3);
+		\node [below right = 0.2cm of CY] {exam Y};
+		%
+		\node at (ILO11) [ILO, draw = red!50!black, fill = red!60!black] {};
+		\node at (ILO12) [ILO, draw = yellow!80!black, fill = yellow!90!black] {};
+		\node at (ILO13) [ILO, draw = yellow!40!black, fill = yellow!60!black] {};
+	}
+
+	\only<4-4>
+	{
+		\draw [very thick, dashed, out = 270, in = 0, shorten < = 0.4cm, shorten > = 0.4cm]
+		(ILO23) to node [pos = 0.5, solid, test] {} (PA);
+		%
+		\node at (pre1) [ILO,  draw = green!40!black, fill = green!50!black] {};
+		\node at (pre2) [ILO,  draw = yellow!60!black, fill = yellow!80!black] {};
+		\node at (pre3) [ILO,  draw = green!30!black, fill = green!50!black] {};
+		\node at (ILO1) [ILO,  draw = green!60!black, fill = green!80!black] {};
+		\node at (ILO2) [ILO,  draw = red!60!black, fill = red!80!black] {};
+		\node at (ILO3) [ILO,  draw = yellow!60!black, fill = yellow!80!black] {};
+		\node at (ILO11) [ILO, draw = red!50!black, fill = red!60!black] {};
+		\node at (ILO12) [ILO, draw = yellow!80!black, fill = yellow!90!black] {};
+		\node at (ILO13) [ILO, draw = yellow!40!black, fill = yellow!60!black] {};
+		\node at (ILO21) [ILO, draw = yellow!80!black, fill = yellow!90!black] {};
+		\node at (ILO22) [ILO, draw = red!50!black, fill = red!60!black] {};
+		\node at (ILO23) [ILO, draw = yellow!40!black, fill = yellow!60!black] {};
+	}
+
+
+\end{tikzpicture}

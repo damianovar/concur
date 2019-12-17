@@ -1,0 +1,30 @@
+\pgfdeclarelayer{ultrabackground}
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{ultrabackground,background,main,foreground}
+
+\tikzset
+{
+	FancyCircle/.style =
+	{
+		shape					= circle,
+		line width				= 0.1cm,
+		align					= center,
+		inner xsep				= 0.1cm,
+		inner ysep				= 0.1cm,
+		text width				= 2.4cm,
+%		circular drop shadow	= { shadow scale = 1.05 },
+		minimum size			= 0.5cm,
+		fill					= \SoftSecondary,
+		draw					= \StrongPrimary,
+	}
+}
+
+\pgfplotscreateplotcyclelist{SignalsStyles}{%
+solid,	line width=0.01cm,	black!90!white,	opacity=1.0,	mark=none\\%
+dashed,	line width=0.02cm,	black!90!white,	opacity=1.0,	mark=none\\%
+solid,	line width=0.03cm,	black!50!white,	opacity=1.0,	mark=none\\%
+dashed,	line width=0.04cm,	black!30!white,	opacity=1.0,	mark=none\\%
+solid,	line width=0.05cm,	black!20!white,	opacity=1.0,	mark=none\\%
+}
+
