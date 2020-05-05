@@ -43,9 +43,10 @@ classdef KCM < handle
 		ASTR_HEADERS_DEV cell = {'targetTaxonomy', 'timeSpent', 'firstLesson'};
 		ASTR_HEADERS_TLA cell = {'timeSpent', 'firstLesson', 'lastLesson'};
 		ASTR_HEADERS_ILLEGAL cell = {'source', 'target', 'type', 'weight', 'reason'};
+		ASTR_HEADERS_ADJ cell = {'dependency', 'dependent', 'level'};
 		% Illegal characters? Either get r2017a+ or change to cellstr.
 		CAT_REASON_NONCAUSAL categorical = categorical("depends on future");
-		CAT_REASON_LOW_TAXONOMY categorical = categorical("inadequate taxonomy level");
+		CAT_REASON_LOW_TAXONOMY categorical = categorical("demands too high level");
 		CAT_REASON_TLA_TOO_LOW categorical = categorical("insufficient teaching");
 		CAT_REASON_CYCLIC categorical = categorical("circular dependence");
 		%
@@ -80,6 +81,9 @@ classdef KCM < handle
 		end % standard constructor
 		tMergedKCM = Merge(tKCM, tMergingKCM);
 		tGraph = ToKCGraph(tKCM);
+		tTaxonomyTables = GetMatrixAsTable(tKCM);
+		tabAdjacency = ToTable(tKCM, iSheet);
+		present(tKCM);
 	end % non-static methods
 	%
 	%

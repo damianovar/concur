@@ -1,5 +1,5 @@
 %
-% Used by the CITE App to fill in the problem types.
+% Used by the COnCUR App to fill in the problem types.
 function acatReasons = GetProblemTypes()
 	%
 	% TODO investigate if there is a way to get all properties of a type

@@ -72,7 +72,7 @@ afSortedIndexEvals = afSortedIndexEvals./(eps + max(afIndexEvals));
 astrSortedKCs = astrUnsortedKCs(aiSortingIndices);
 %
 % print the report
-fprintf('\n\n---- Report of the Most %s %s By Index "%s" ----\n',	...
+fprintf('\n\n---- Report of the Most %s %s By Index "%s" (normalized) ----\n',	...
 	strIndexTypeLabel, strKCLabel, strIndexLabel);
 fprintf('%4s %7s \t%s\n', 'rank', 'index', strKCLabel)
 	%

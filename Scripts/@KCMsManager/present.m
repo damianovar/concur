@@ -1,15 +1,14 @@
 %
 % Presents the KCM to the user.
-% Deprecated. Consider using ``present'' instead.
-function ShowCurrentKCM(tKCMsManager)
+function present(tKCMsManager)
 	%
 	fprintf('\n\n---------Showing the current KCM--------\n\n')
 	%
 	fprintf('\nList of prerequisite KCs:\n');
 	disp( tKCMsManager.tKCM.astrPrerequisiteKCs );
 	%
-	fprintf('\nList of merged KCs:\n');
-	disp( tKCMsManager.tKCM.astrMergedKCs );
+	%fprintf('\nList of merged KCs:\n');
+	%disp( tKCMsManager.tKCM.astrMergedKCs );
 	%
 	fprintf('\nList of developed KCs:\n');
 	disp( tKCMsManager.tKCM.astrDevelopedKCs );

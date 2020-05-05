@@ -4,8 +4,8 @@ function AnalyzeCurrentKCM(tKCMsManager, tProgram)
 	tLauncher = Launcher();
 	%
 	% Cheap way of getting an invalid handle
-	hCITEApp = figure;
-	delete(hCITEApp);
+	hCOnCURApp = figure;
+	delete(hCOnCURApp);
 	%
 	% ask the user what to do, and do stuff while there is something to do
 	while(		tLauncher.GetUserChoice(tLauncher.KCM_ANALYSIS,			...
@@ -25,18 +25,20 @@ function AnalyzeCurrentKCM(tKCMsManager, tProgram)
  				tKCMsManager.tGraph.SetActiveTaxonomy();
 			%
 			case tLauncher.atValidChoices(tLauncher.KCM_ANALYSIS).PLOT_KCG
-				if (isvalid(hCITEApp))
-					fprintf('There is a CITE app open already. Please close it first.\n');
+				if (isvalid(hCOnCURApp))
+					fprintf('There is a COnCUR app open already. Please close it first.\n');
 				elseif (ParametersManager.PARAMS.bUseApp)
-					hCITEApp = CITEApp(tProgram);
-					fprintf(['\n----- INTERACTIVITY EXPLAINED -----\n> Left-click on'...
-						' a node to highlight it. Nodes that are not neighbors to any'...
-						' highlighted node will be put in the background,\nas will'...
-						' connections that do not go to or from such nodes.\n> '...
-						'Right-click on a KC node to show which courses it is'...
-						' used in.\n\n']);
+					hCOnCURApp = COnCURApp(tProgram);
+                    if ParametersManager.PARAMS.bVerbose
+                        fprintf(['\n----- INTERACTIVITY EXPLAINED -----\n> Left-click on'...
+                            ' a node to highlight it. Nodes that are not neighbors to any'...
+                            ' highlighted node will be put in the background,\nas will'...
+                            ' connections that do not go to or from such nodes.\n> '...
+                            'Right-click on a KC node to show which courses it is'...
+                            ' used in.\n\n']);
+                    end
 				else
-					hCITEApp = plot(tKCMsManager.tGraph, 0, tProgram);
+					hCOnCURApp = plot(tKCMsManager.tGraph, 0, tProgram);
 				end
 			%
 			case tLauncher.atValidChoices(tLauncher.KCM_ANALYSIS).PLOT_CENTRALITY_INDEXES
@@ -69,6 +71,6 @@ function AnalyzeCurrentKCM(tKCMsManager, tProgram)
 	end % while
 	%
 	% destroy the app when we are done
-	delete(hCITEApp);
+	delete(hCOnCURApp);
 end % function
 

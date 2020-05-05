@@ -1,5 +1,5 @@
 %
-% A class that holds constants that are used in the CITE Suite.
+% A class that holds constants that are used in the COnCUR.
 classdef ParametersManager < handle
 	%
 	% ---------------------------------------------------------------------
@@ -17,7 +17,7 @@ classdef ParametersManager < handle
 		%
 		% Verbose mode. Debugging should use breakpoints and the built-in
 		% debugger!
-		bVerbose logical = true;
+		bVerbose logical = false;
 		bUseApp logical = true;
 		%
 		% Scaling to use in labels etc.
@@ -26,14 +26,19 @@ classdef ParametersManager < handle
 		% paths
 		strPathToKCMsDatabase char = '../Databases/KCMs/';
 		strPathToProgramsDatabase char = '../Databases/Programs/';
-		strDefaultProgram char = 'MockUp.txt';
+		strPathToReportOutput char = '../Results/GenedReports/';
+		strDefaultProgram char = 'LTU-MachineElements-2019.txt';
+% 		strDefaultProgram char = 'NTNU-MIIK.txt';
 		%
-		strDateFormat char = 'yy-MM-dd';
+		strDateFormat char = 'yyyy-MM-dd';
 		strDefaultKCMFilename char = 'demo.xlsx';
-		iMaxNumberOfKCsInTheKCMFile double = 19;
+		iMaxNumberOfKCsInTheKCMFile double = 20;
 		%
 		% Preferred layer assignment method
 		strPreferredLayeringMethod char = 'auto';
+		%
+		% Output format of the report. One of
+		strReportFormat char = 'tex';
 		%
 	end % properties
 	%
@@ -53,10 +58,16 @@ classdef ParametersManager < handle
 		STR_PROGRAM char = 'program';
 		STR_LOCAL char = 'local';
 		STR_IN_PROGRAM char = 'course-in-program';
+		%
+		ACAT_REPORT_FORMAT_LIST categorical = categorical("txt", "tex");
 		
 		I_GOOGLE_SHEETS double = 1;
 		I_LOCAL_FILE double = 2;
 		I_LOADED_PROGRAM double = 3;
+		%
+		% The expected number in A1 of the 'developed vs prerequisite KCs'
+		% sheet in the KCM.
+		I_TEMPLATE_VARIANT double = 1;
 		%
 		% Figure indices.
 		I_FIGURE_INDEX_PROGRAM double = 1337;
@@ -78,6 +89,10 @@ classdef ParametersManager < handle
 		
 		STR_WRONG_INPUT char = ['\nWrong choice! Please check what you actually'...
 			' would like to do.\n\n'];
+		STR_WARN_DIM_MISMATCH char...
+			= ['Either %s or %s is missing at least one dimension of its %s matrix.\n'...
+			'The other matrix has the missing dimensions, so this could lead to '...
+			'spurious problems in the KC flow graph.'];
 		%
 		% Is the default name of the temporary KCM.
 		STR_DEFAULT_TEMP_KCM_NAME char = 'cache.xlsx';
@@ -85,6 +100,7 @@ classdef ParametersManager < handle
 		%
 		% Error identifier for merging duplicate courses.
 		STR_MERGE_ERROR_ID char = 'citesuite:KCMDuplicateMerge';
+		STR_KC_DUPE_ID char = 'citesuite:KCOfMoreThanOneType';
 		STR_NO_PROGRAM_ERROR_ID char = 'citesuite:ProgramNotChosen';
 	end % constants
 	%
