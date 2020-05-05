@@ -1,5 +1,5 @@
 clearvars; close all; clc;
-fprintf('----- Welcome to CITE! -----\n\n');
+fprintf('----- Welcome to COnCUR! -----\n\n');
 
 % allocate the various objects
 % ParametersManager has an instance of parameters manager.
@@ -32,19 +32,44 @@ while(		tLauncher.GetUserChoice(tLauncher.MAIN_MENU,		...
 			%
 			% To stop the user from opening hundreds of apps
 			if isvalid(hApp)
-				fprintf('There is a CITE App open already. Please close it first.\n');
+				fprintf('There is a COnCUR App open already. Please close it first.\n');
 			else
-				hApp = CITEApp(tProgram);
+				hApp = COnCURApp(tProgram);
 			end
 		%
 		case tLauncher.atValidChoices(tLauncher.MAIN_MENU).SELECT_KCM
 			tKCMsManager.SelectKCM(tProgram);
 		%
 		case tLauncher.atValidChoices(tLauncher.MAIN_MENU).SHOW_CURRENT_KCM
-			tKCMsManager.ShowCurrentKCM();
+			% `disp' was a Matlab built-in that shouldn't be overloaded.
+			% Falling back to `present'.
+			present(tKCMsManager); 
 		%
 		case tLauncher.atValidChoices(tLauncher.MAIN_MENU).ANALYZE_CURRENT_KCM
 			tKCMsManager.AnalyzeCurrentKCM(tProgram);
+		%
+		case tLauncher.atValidChoices(tLauncher.MAIN_MENU).CREATE_REPORT
+			strOutputPath = [tParametersManager.strPathToReportOutput...
+				tProgram.GetName()];
+			if strcmp(tParametersManager.strReportFormat, 'tex')
+				tProgram.GenerateTeXReport(strOutputPath);
+			elseif strcmp(tParametersManager.strReportFormat, 'txt')
+			try
+				%
+				delete([strOutputPath '.txt']);
+				diary([strOutputPath '.txt']);
+				present(tProgram);
+				diary off;
+			catch tME
+				% To ensure the log ends correctly in case anything goes
+				% wrong
+				diary off;
+				rethrow(tME);
+			end
+			else
+				error('Attempted to generate a report of unsupported format %s.',...
+					tParametersManager.strReportFormat);
+			end
 		%
 		case tLauncher.atValidChoices(tLauncher.MAIN_MENU).SHOW_DEFAULT_PARAMETERS
 			ParametersManager.Print();
