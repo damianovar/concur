@@ -36,9 +36,10 @@ hPlot.MarkerSize = hPlot.MarkerSize*fResolutionMult;
 hPlot.NodeFontSize = hPlot.NodeFontSize*fResolutionMult;
 %
 % For user-friendliness in the figure
-xlabel('The ''\times'' node represents the KC.');
-ylabel({'An edge going into the KC means it''s developed in the course.'...
-	'An edge going out of it means it''s a prerequisite for the course.'});
-title(sprintf('How KC %s +%d Relates to the Courses in %s',...
-	strChosenLabel{1, 1}, numel(strChosenLabel) - 1, tProgram.GetName()));
+% xlabel('The ''\times'' node represents the KC.');
+% ylabel({'An edge going into the KC means it''s developed in the course.'...
+% 	'An edge going out of it means it''s a prerequisite for the course.'});
+title('How the Chosen KC Relates to the Courses in the Program');
+% title(sprintf('How KC %s +%d Relates to the Courses in %s',...
+% 	strChosenLabel{1, 1}, numel(strChosenLabel) - 1, tProgram.GetName()));
 end

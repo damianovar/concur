@@ -34,6 +34,7 @@ hPlot.MarkerSize = hPlot.MarkerSize*fResolutionMult;
 hPlot.NodeFontSize = hPlot.NodeFontSize*fResolutionMult;
 %xlabel('The ''\times'' is the course.');
 %ylabel('Edges going into the course are prerequisites, others are developed.');
-title(sprintf('How Course %s +%d Relates to Its KCs', astrCourseCodes{1},...
-	numel(atKCMs) - 1));
+title('How the Chosen Course Relates to Its KCs');
+% title(sprintf('How Course %s +%d Relates to Its KCs', astrCourseCodes{1},...
+% 	numel(atKCMs) - 1));
 end

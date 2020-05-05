@@ -33,6 +33,7 @@ classdef Program < handle
 		%
 		%
 		hPlot = Plot(tProgram, varargin);
+		tabFutureDependencies = DetectFutureDependencies(tProgram);
 		[tPreKCM, tDevKCM] = CreateFakeKCMs(tProgram);
 	end
 	%

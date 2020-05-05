@@ -81,6 +81,15 @@ for iKCM = length(aiRowsToKeep):-1:1
 			[strFilename, strPath] = Program.DownloadKCMWithWget(strSheetID);
 			tProgram.atKCMs(iKCM).Load([strPath strFilename]);
 			%
+			% Copy the cached sheet to its expected location to improve
+			% performance next time
+			[bCopySuccess, strErrorMessage, ~] = copyfile(ParametersManager...
+				.STR_DEFAULT_TEMP_KCM_NAME, strExpectedPath);
+			if ~bCopySuccess
+				warning('Failed to copy sheet %s.\nReason: %s', tabUnique...
+					.coursecode(iKCM), strErrorMessage);
+			end
+			%
 			% Clear it when we are done and wait a little, as there may be a
 			% download limit
 			ClearCachedSheet();
@@ -90,6 +99,7 @@ for iKCM = length(aiRowsToKeep):-1:1
 			rethrow(eNoFile);
 		end
 	end
+	tProgram.atKCMs(iKCM).ToKCGraph();
 end
 %
 % Merge all the KCM:s
@@ -105,6 +115,9 @@ end
 if (nargin > 1)
 	tKCMsManager.tKCM = tProgram.tProgramKCM;
 	tKCMsManager.GenerateKCGraph();
+	tKCMsManager.tGraph.tabIllegalEdges...
+		= union(tProgram.DetectFutureDependencies(),...
+			tKCMsManager.tGraph.tabIllegalEdges);
 end
 %
 % Create a fake KCM for program prerequisites and program developed
