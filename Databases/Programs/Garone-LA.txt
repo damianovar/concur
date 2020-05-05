@@ -1,0 +1,5 @@
+coursecode	version	link
+BASICS	1	n/a
+SUBSPC	1	n/a
+MANIPM	1	n/a
+BLNSYS	1	n/a
