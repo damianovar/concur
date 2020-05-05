@@ -3,7 +3,11 @@
 function Load(tKCM, strPath)
 	%
 	% Import the data from the spreadsheet 	
+	lastwarn('');
 	tEverything = importdata( strPath );
+	if ~isempty(lastwarn)
+		error('Failed to load the KCM at %s.', strPath);
+	end
 	tTextual = tEverything.textdata;
 	tNumeric = tEverything.data;
 	%
@@ -19,6 +23,10 @@ function Load(tKCM, strPath)
 	try
 		tKCM.dtCourseStart = datetime(tTextual.courseSummary(iBeginExpectedRow,...
 		iBeginExpectedColumn), 'InputFormat', strFormat);
+        if isnat(tKCM.dtCourseStart)
+            tKCM.dtCourseStart = datetime(tNumeric.courseSummary(1),...
+                "ConvertFrom", "excel");
+        end
 	catch eNoDate
 		%
 		% Invalid date found; enter zero as serial date number

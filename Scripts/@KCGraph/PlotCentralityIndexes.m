@@ -3,7 +3,7 @@ function PlotCentralityIndexes( tGraph )
 	% if the graph hasn't been initialized then skip the function
 	if( numel(tGraph.aafCentralityIndexesEvaluations) == 0 )
 		%
-		fprintf('The centrality indexes haven''t been computed yet -- skipping their plotting for now\n');
+		fprintf('The centrality indexes haven''t been computed yet.\n');
 		return;
 		%
 	end %
@@ -34,11 +34,13 @@ function PlotCentralityIndexes( tGraph )
 	tGraph.PlotGraphMeasure(aiDevelopedIndexes, tGraph.aafCentralityIndexesEvaluations,...
 		tGraph.astrNodesNames(aiDevelopedIndexes), [0.05 0.4 0.9 0.2], 'Centrality',...
 		'Developed');
+	if any(aiILOIndexes)
 	%
-	% third subfigure = merged KCs
-	subplot(3,1,3);
-	tGraph.PlotGraphMeasure(aiILOIndexes, tGraph.aafCentralityIndexesEvaluations,...
-		tGraph.astrNodesNames(aiILOIndexes),	[0.05 0.1 0.9 0.15], 'Centrality',...
-		'Learning Outcome');
+	% third subfigure = learning outcomes
+		subplot(3,1,3);
+		tGraph.PlotGraphMeasure(aiILOIndexes, tGraph.aafCentralityIndexesEvaluations,...
+			tGraph.astrNodesNames(aiILOIndexes),	[0.05 0.1 0.9 0.15], 'Centrality',...
+			'Learning Outcome');
+	end
 end % function
 

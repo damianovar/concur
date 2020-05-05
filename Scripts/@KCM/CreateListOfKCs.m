@@ -22,5 +22,21 @@ function CreateListOfKCs( tKCM, tTextual )
 										iIntendedLearnOutcomesColumn);
 	tKCM.astrMergedKCs = {};
 	%
+	% Check for duplicate KCs
+	aastrCheckMatrix = {tKCM.astrPrerequisiteKCs
+						tKCM.astrDevelopedKCs
+						tKCM.astrTeachLearnActivities
+						tKCM.astrIntendedLearnOutcomes};
+	aaiIndices = repmat(1:size(aastrCheckMatrix, 1), size(aastrCheckMatrix, 1), 1);
+	aabDupes = arrayfun(@(r,c) any(ismember(aastrCheckMatrix{r}...
+										(strlength(aastrCheckMatrix{r}) > 0),...
+										aastrCheckMatrix{c}...
+										(strlength(aastrCheckMatrix{c}) > 0))),...
+						aaiIndices', aaiIndices);
+	if ~isdiag(double(aabDupes))
+		error(ParametersManager.STR_KC_DUPE_ID, ['At least one KC, TLA or ILO is '...
+			'of more than one type in the KCM of %s.'], tKCM.strCourseCode);
+	end
+	%
 end % function
 

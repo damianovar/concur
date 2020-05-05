@@ -15,7 +15,7 @@ aaiData = tNumeric.infoOnTheDevelopedKCs;
 %
 % Just to make stuff work, set to zero if too small
 if (any(size(aaiData) < aiExpectedSize)) 
-	aaiData = zeros(aiExpectedSize);
+	aaiData(iLastRow, iLastColumn) = 0;
 end
 tKCM.tabDevelopedKCs = array2table(aaiData(iFirstRow:iLastRow, iFirstColumn:iLastColumn),...
 	'RowNames', strcat(tKCM.strCourseCode, ':', tKCM.astrDevelopedKCs),...
@@ -38,7 +38,7 @@ iLastRow = iFirstRow - 1 + numel(tKCM.astrTeachLearnActivities);
 aiExpectedSize(1) = iLastRow;
 %
 % Just to make stuff work, set to zero if too small
-if (size(aaiData, 1) < aiExpectedSize(1) || size(aaiData, 2) < aiExpectedSize(2)) 
+if (any(size(aaiData) < aiExpectedSize)) 
 	aaiData = zeros(aiExpectedSize);
 end
 tKCM.tabTLAs = array2table(aaiData(iFirstRow:iLastRow, iFirstColumn:iLastColumn),...

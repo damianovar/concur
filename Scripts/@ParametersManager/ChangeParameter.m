@@ -3,7 +3,8 @@
 function ChangeParameter()
 tParams = ParametersManager.PARAMS;
 astrValidParams = {'verbose', 'KCM path', 'program path', 'default KCM',...
-	'layer method', 'KC cap', 'plot in app', 'date format', 'label scale'};
+	'layer method', 'KC cap', 'plot in app', 'date format', 'label scale',...
+	'report format'};
 fprintf('The available parameters are: \n');
 disp(astrValidParams');
 strParameter = input('Change which parameter? ', 's');
@@ -88,7 +89,13 @@ switch (iWhich)
 		else
 			fprintf(ParametersManager.STR_WRONG_INPUT);
 		end
+	case 10
+		if ismember(strNewParam, ParametersManager.ACAT_REPORT_FORMAT_LIST)
+			tParams.strReportFormat = strNewParam;
+		else
+			fprintf(ParametersManager.STR_WRONG_INPUT);
+		end
 	otherwise
-		error('Unrecognised parameter %s', strParameter);
+		error('Unrecognised parameter %s.', strParameter);
 end
 end

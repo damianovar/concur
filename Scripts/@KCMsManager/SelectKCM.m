@@ -32,7 +32,7 @@ function SelectKCM(tKCMsManager, tProgram)
 	%
 	% Check the source of the KCM
 	if ( strcmp(strKCMSource, ParametersManager.STR_PROGRAM) )
-		fprintf('This option is being repurposed. This option does nothing.\n');
+		fprintf('This option is being repurposed and does nothing.\n');
 		strFilename = '';
 		strPath = '';
 	elseif ( strcmp(strKCMSource, ParametersManager.STR_LOCAL) )

@@ -4,7 +4,7 @@ function Print()
 	tParams = ParametersManager.PARAMS;
 	%
 	fprintf('\n\nCurrent parameters (a selection):\n\n')
-	fprintf('\tVerbose CITE Suite                 %d\n', tParams.bVerbose);
+	fprintf('\tVerbose COnCUR                 %d\n', tParams.bVerbose);
 	fprintf('\tPath to KCMs database              %s\n', tParams.strPathToKCMsDatabase);
 	fprintf('\tPath to Program database	          %s\n', tParams.strPathToProgramsDatabase);
 	fprintf('\tDefault KCM Filename               %s\n', tParams.strDefaultKCMFilename);

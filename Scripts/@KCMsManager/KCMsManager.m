@@ -20,13 +20,13 @@ classdef KCMsManager < handle
 		function tKCMsManager = KCMsManager()
 			%
 			% load the default parameters
-			tKCMsManager.strPathOfCurrentKCM	...
-				= strcat(	ParametersManager.PARAMS.strPathToKCMsDatabase,	...
-							ParametersManager.PARAMS.strDefaultKCMFilename	);
+			%tKCMsManager.strPathOfCurrentKCM	...
+				%= strcat(	ParametersManager.PARAMS.strPathToKCMsDatabase,	...
+				%			ParametersManager.PARAMS.strDefaultKCMFilename	);
 			%
 			% load the default KCM
-			tKCMsManager.LoadKCM(tKCMsManager.strPathOfCurrentKCM);
-			tKCMsManager.GenerateKCGraph();
+			%tKCMsManager.LoadKCM(tKCMsManager.strPathOfCurrentKCM);
+			%tKCMsManager.GenerateKCGraph();
 			%
 		end % standard constructor
 		%
