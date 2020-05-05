@@ -1,81 +1,168 @@
 \section{What is this? And why should I use it?}
 \label{sec:what_is_this_and_why_should_i_use_it}
 
-Among the needs of the persons involved in higher education, we identified the following:
+Among the needs of the persons involved in higher education, we identified
+the following:
 %
 \begin{description}
-	\item[for students:] when studying, have a clear idea of how courses connect to each other from a contents-wise perspective, and of why it is important to memorize and understand what it is being asked to study (e.g., why shall I understand what is the geometrical interpretation of eigenvalues?);
-	\item[for teachers:] when modifying the contents of the own courses, have a holistic view on the effects of these contents modifications on the program (e.g., if I won't teach this concept anymore in my course, how will this affect the following courses?);
-	\item[for program boards:] when modifying the structure of a program, have instruments that help steering discussions and taking decisions based on evidence instead of opinions (e.g., why shall this course be taught before that other one?);
-	\item[for administrators:] when inspecting and assessing the program quality, have instruments that are quantitative oriented, explainable, and communicable, so to ease discussions and reporting.
+	\item[for students:] when studying, have a clear idea of how courses
+		connect to each other from a contents-wise perspective, and
+		of why it is important to memorize and understand what it is
+		being asked to study (e.g., why shall I understand what is
+		the geometrical interpretation of eigenvalues?);
+	\item[for teachers:] when modifying the contents of the own courses,
+		have a holistic view on the effects of these contents
+		modifications on the program (e.g., if I won't teach this
+		concept anymore in my course, how will this affect the
+		following courses?);
+	\item[for program boards:] when modifying the structure of a
+		program, have instruments that help steering discussions and
+		taking decisions based on evidence instead of opinions
+		(e.g., why shall this course be taught before that other
+		one?);
+	\item[for administrators:] when inspecting and assessing the program
+		quality, have instruments that are quantitative oriented,
+		explainable, and communicable, so to ease discussions and
+		reporting.
 \end{description}
 
 \begin{centering}
 \begin{tikzpicture}
-\node [minimum width = \textwidth, rounded corners, draw, thick, fill = black!10!white, align = justify, text width = 0.95\textwidth, inner sep = 0.2cm]
-{This suite tries to meet these needs by representing the contents within university programs using graph-oriented quantitative descriptions and analyses, and suggesting these representations as tools to aid students, teachers, boards and administrators to gain evidence-based awareness and alignment.};
+\node [minimum width = \textwidth, rounded corners, draw, thick, fill =
+	black!10!white, align = justify, text width = 0.95\textwidth, inner
+	sep = 0.2cm]
+{COnCUR tries to meet these needs by representing the contents within
+	university programs using graph-oriented quantitative descriptions
+	and analyses, and suggesting these representations as tools to aid
+	students, teachers, boards and administrators to gain evidence-based
+	awareness and alignment.};
 \end{tikzpicture}
 \end{centering}
 
 The approach is the following: 
 \begin{enumerate}
-	\item consider courses and programs as opportune flows and transformations of prerequisite contents-wise knowledge (expressed in terms of prerequisite concepts) into developed contents-wise knowledge (expressed in terms of \acp{KC}. See Section~\ref{sec:lexicon} for an explanation of all the various terms); 
-	\item analyze and visualize the structure of a program (or a part of it) in terms of these concepts development flows;
-	\item connect these concept development flows to the \acp{TLA}, \acp{ILO}, and \acp{PLO} of the various courses and the whole program;
-	\item increase the awareness of the stakeholders by visualizing and analysing these connections and flows in (hopefully) self-explanatory ways.
+	\item consider courses and programs as opportune flows and
+		transformations of prerequisite contents-wise knowledge
+		(expressed in terms of prerequisite \acp{KC}) into developed
+		contents-wise knowledge (expressed in terms of developed
+		\acp{KC}. See Section~\ref{sec:lexicon} for an explanation
+		of all the various terms); 
+	\item analyze and visualize the structure of a program (or a part of
+		it) in terms of these \ac{KC} development flows;
+	\item connect these flows to the \acp{TLA}, \acp{ILO} and \acp{PLO}
+		of the various courses and the whole program;
+	\item increase the awareness of the stakeholders by visualizing and
+		analyzing these connections and flows in self-explanatory
+		ways.
 \end{enumerate}
 
 \begin{example}
 	%
-	To exemplify this process, assume that the contents of the fictitious ``\emph{Course X}'' can be expressed in terms of which prerequisite concepts are required by the students plus which concepts are developed in the course itself. E.g., let the prerequisites and developed concepts be:
+	To exemplify this process, assume that the contents of the
+	fictitious ``\emph{Course X}'' can be expressed in terms of which
+	prerequisite \acp{KC} are required by the students plus which
+	\acp{KC} are developed in the course itself. E.g., let the
+	prerequisites and developed \acp{KC} be:
 	%
 	\begin{itemize}
-		\item prerequisites: ``\emph{vector spaces}'', ``\emph{linearity}'', and ``\emph{matrices-vectors multiplication}'';
-		\item developed: ``\emph{eigenvalues}'', ``\emph{characteristic polynomials}'', ``\emph{computation of Jordan forms}''.
+		\item prerequisites: ``\emph{vector spaces}'',
+			``\emph{linearity}'', and ``\emph{matrices-vectors
+			multiplication}'';
+		\item developed: ``\emph{eigenvalues}'',
+			``\emph{characteristic polynomials}'',
+			``\emph{computation of Jordan forms}''.
 	\end{itemize}
 	%
-	Ideally (and as an example), the teacher knows that the developed concepts are ideally reached by building on the prerequisite ones as summarized as in Figure~\ref{fig:KCM}. I.e.,
+	Ideally, and as an example, the teacher knows that the developed
+	\acp{KC} are reached by building on the prerequisite ones as
+	summarized in Figure~\ref{fig:KCM}. I.e., in the ideal case,
 	%
 	\begin{itemize}
-		\item to be able to learn about \emph{eigenvalues} students should ideally have a prerequisite learning level (using Bloom's taxonomy~\cite{bloom1956taxonomy} as an illustrative example) \emph{2 - understand} for both prerequisite concepts \emph{vector spaces} and \emph{linearity};
-		\item to be able to learn about \emph{characteristic polynomials} students should ideally have a prerequisite learning level \emph{2 - understand} about \emph{matrices and vectors multiplication}, and have reached - while studying for \emph{Course X} - a learning level \emph{1 - remember} about the developed concept \emph{eigenvalues};
-		\item to be able to learn about \emph{computation of Jordan forms} students should ideally have a prerequisite learning level \emph{1 - remember} for the prerequisite \emph{linearity} and level \emph{2 - understand} about the developed \emph{eigenvalues} and \emph{characteristic polynomials}.
+		\item to be able to learn about \emph{eigenvalues}, students
+			should have reached learning level (using Bloom's
+			taxonomy~\cite{bloom1956taxonomy} as an illustrative
+			example) two (understand) for both prerequisites
+			\emph{vector spaces} and \emph{linearity} by the
+			time that \ac{KC} is taught;
+		\item to be able to learn about \emph{characteristic
+			polynomials}, they should have reached learning
+			level two for \emph{matrices and vectors
+			multiplication}, and have reached learning level one
+			(remember) about the developed \ac{KC}
+			\emph{eigenvalues} while studying \emph{Course X};
+		\item to be able to learn about \emph{computation of Jordan
+			forms}, they should have reached learning level one
+			for the prerequisite \emph{linearity} and level two
+			for the developed \emph{eigenvalues} and
+			\emph{characteristic polynomials}.
 	\end{itemize}
 	%
 	\begin{figure}[!htbp]
 		\centering
 		\input{example-KCM}
-		\caption{Tabular representation of how \emph{Course X}'s developed concepts are ideally reached by building on its prerequisites. In this document we call this matrix a \acf{KCM}.}
+		\caption{Tabular representation of how \emph{Course X}'s
+		developed concepts are ideally reached by building on its
+		prerequisites. This matrix is known as a \acf{KCM} in this
+		manual.}
 		\label{fig:KCM}
 	\end{figure}
 	%
-	The \ac{KCM} in Figure~\ref{fig:KCM} can be converted into its graph representation defined in Figure~\ref{fig:KCG}.
+	The \ac{KCM} in Figure~\ref{fig:KCM} can be converted into its graph
+	representation defined in Figure~\ref{fig:KCG}.
 	%
 	\begin{figure}[!htbp]
 		\centering
 		\input{example-KCG}
-		\caption{Graphical representation of the \acf{KCM} in Figure~\ref{fig:KCM} as a (as called in this document) \acf{KCG}.}
+		\caption{Graphical representation of the \acf{KCM} in
+		Figure~\ref{fig:KCM}, which is known as a \acf{KCG} in this
+		manual.}
 		\label{fig:KCG}
 	\end{figure}
 	%
-	Within a program, the concepts developed in some courses may be prerequisites for other courses. This means that one can join the various individual \acp{KCM} and \acp{KCG} into a program-wide representation. This operation produces a directed graph representing the various ``\emph{concepts learning flows}'' that students ideally follow during their studies. 
+	Within a program, the \acp{KC} developed in some courses may be
+	prerequisites for other courses. This means that one can join the
+	various individual \acp{KCM} and \acp{KCG} into a program-wide
+	representation. This operation produces a directed graph
+	representing the various ``\emph{\acp{KC} learning flows}'' that
+	students ideally follow during their studies. 
 	%
 \label{exa:KCM}
 \end{example}
 
-\ac{KCG} representations can help meeting the stakeholders' needs listed at the beginning as follows:
+\ac{KCG} representations can help meeting the stakeholders' needs listed at
+the beginning as follows:
 %
 \begin{description}
-	\item[for teachers:] changing the content of a course means changing the learning flows in the \ac{KCG}. With the here proposed software one may then check if course modifications (i.e., \ac{KCM} modifications) will lead to broken, redundant or non-pedagogically ideal paths in the \ac{KCG};
-	\item[for program boards:] the same software may be used to manage the discussions during boards meetings, and be a digital canvas where to test the meaningfulness of different program changes. This may help taking an evidence-based approach to designing and modifying programs;
-	\item[for students:] the software may be used by students to get intuitions about the purpose of studying specific concepts, what is the effect of having forgotten parts of the program, plus how central each part is within the program flow. The software may thus help single students perform self-assessment and monitoring, and help gaining holistic viewpoints on the expected learning process;
-	\item[for quality assurance personnel:] the software may be used also by quality assurance to perform automatic assessments of structural properties of the programs. We envision to use these representations also to help performing comparisons of different programs in different institutions - however we still did not implement these features.
+	\item[for teachers:] changing the contents of a course means
+		changing the learning flows in the \ac{KCG}. With the
+		proposed software, one can check if modifying a course
+		(here: the \ac{KCM}) is going to lead to broken, redundant
+		or non-ideal pedagogical paths in the \ac{KCG};
+	\item[for program boards:] the same software may be used to manage
+		the discussions during board meetings, and act as a digital
+		canvas where the meaningfulness of different program changes
+		can be evaluated. This may help taking an evidence-based
+		approach to designing and modifying programs;
+	\item[for students:] the software may be used by students to get
+		intuitions about the purpose of studying specific \acp{KC},
+		understanding the effect of having forgotten parts of the
+		program as well as how central each part is within the
+		program flow. The software may thus help students perform
+		self-assessment and monitoring, and help gaining holistic
+		viewpoints on the expected learning process;
+	\item[for quality assurance personnel:] the software may be used
+		also by quality assurance to perform automatic assessments
+		of structural properties of the programs. We envision to use
+		these representations also to help performing comparisons of
+		different programs at different institutions; these features
+		are not yet implemented, however.
 \end{description}
-
-
 
 \subsection{What if I just want to analyse a single course?}
 
-The software may be used by a teacher or set of teachers also in the context of a \emph{single course}. In other words, in the following one may build up a \ac{KCM} for each \emph{individual class} instead of for each \emph{individual course}. This means that this software may be used as it is also for planning, visualizing, assessing and discussing the detailed contents of a course, instead of a program or part of it.
-
-
+The software may be used by a teacher or set of teachers also in the context
+of a \emph{single course}. In other words, in the following one may build up
+a \ac{KCM} for each \emph{individual class} instead of for each
+\emph{individual course}. This means that this software may be used as it is
+also for planning, visualizing, assessing and discussing the detailed
+contents of a course, instead of a program or part of it.

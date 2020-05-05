@@ -1,0 +1,28 @@
+\babel@toc {english}{}
+\contentsline {section}{\numberline {1}What is this? And why should I use it?}{3}{section.1}% 
+\contentsline {subsection}{\numberline {1.1}What if I just want to analyse a single course?}{4}{subsection.1.1}% 
+\contentsline {section}{\numberline {2}An overview of the structure of this manual}{5}{section.2}% 
+\contentsline {section}{\numberline {3}Inserting the data}{5}{section.3}% 
+\contentsline {subsection}{\numberline {3.1}Creating the database containing the files above}{5}{subsection.3.1}% 
+\contentsline {subsubsection}{\numberline {3.1.1}Internet-based case}{7}{subsubsection.3.1.1}% 
+\contentsline {subsubsection}{\numberline {3.1.2}Local repository case}{7}{subsubsection.3.1.2}% 
+\contentsline {subsection}{\numberline {3.2}Filling up the various \acp {KCM}}{8}{subsection.3.2}% 
+\contentsline {subsubsection}{\numberline {3.2.1}The course summary sheet}{8}{subsubsection.3.2.1}% 
+\contentsline {subsubsection}{\numberline {3.2.2}The developed vs.\ prerequisite KCs sheet}{9}{subsubsection.3.2.2}% 
+\contentsline {subsubsection}{\numberline {3.2.3}The info on the developed KCs sheet}{9}{subsubsection.3.2.3}% 
+\contentsline {subsubsection}{\numberline {3.2.4}The remaining sheets}{9}{subsubsection.3.2.4}% 
+\contentsline {subsection}{\numberline {3.3}Summary of the procedure}{10}{subsection.3.3}% 
+\contentsline {section}{\numberline {4}Analysing the data}{10}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}Launching Matlab}{10}{subsection.4.1}% 
+\contentsline {subsection}{\numberline {4.2}The initial prompt}{10}{subsection.4.2}% 
+\contentsline {subsection}{\numberline {4.3}The KCM analysis prompt}{11}{subsection.4.3}% 
+\contentsline {subsection}{\numberline {4.4}The COnCUR app}{11}{subsection.4.4}% 
+\contentsline {section}{\numberline {5}Interpreting the results}{11}{section.5}% 
+\contentsline {subsection}{\numberline {5.1}Interpreting the centrality indexes}{11}{subsection.5.1}% 
+\contentsline {section}{\numberline {A}Lexicon}{13}{appendix.A}% 
+\contentsline {section}{\numberline {B}How to define the knowledge components list}{13}{appendix.B}% 
+\contentsline {section}{\numberline {C}How to interpret and assign taxonomy levels}{13}{appendix.C}% 
+\contentsline {section}{\numberline {D}How to identify \acp {ILO}}{14}{appendix.D}% 
+\contentsline {section}{\numberline {E}How to identify \acp {TLA}}{14}{appendix.E}% 
+\contentsline {section}{\numberline {F}Debugging}{14}{appendix.F}% 
+\contentsline {section}{\numberline {G}Bibliography}{14}{appendix.G}% 

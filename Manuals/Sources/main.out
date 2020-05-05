@@ -1,0 +1,27 @@
+\BOOKMARK [1][-]{section.1}{What is this? And why should I use it?}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{What if I just want to analyse a single course?}{section.1}% 2
+\BOOKMARK [1][-]{section.2}{An overview of the structure of this manual}{}% 3
+\BOOKMARK [1][-]{section.3}{Inserting the data}{}% 4
+\BOOKMARK [2][-]{subsection.3.1}{Creating the database containing the files above}{section.3}% 5
+\BOOKMARK [3][-]{subsubsection.3.1.1}{Internet-based case}{subsection.3.1}% 6
+\BOOKMARK [3][-]{subsubsection.3.1.2}{Local repository case}{subsection.3.1}% 7
+\BOOKMARK [2][-]{subsection.3.2}{Filling up the various KCM}{section.3}% 8
+\BOOKMARK [3][-]{subsubsection.3.2.1}{The course summary sheet}{subsection.3.2}% 9
+\BOOKMARK [3][-]{subsubsection.3.2.2}{The developed vs. prerequisite KCs sheet}{subsection.3.2}% 10
+\BOOKMARK [3][-]{subsubsection.3.2.3}{The info on the developed KCs sheet}{subsection.3.2}% 11
+\BOOKMARK [3][-]{subsubsection.3.2.4}{The remaining sheets}{subsection.3.2}% 12
+\BOOKMARK [2][-]{subsection.3.3}{Summary of the procedure}{section.3}% 13
+\BOOKMARK [1][-]{section.4}{Analysing the data}{}% 14
+\BOOKMARK [2][-]{subsection.4.1}{Launching Matlab}{section.4}% 15
+\BOOKMARK [2][-]{subsection.4.2}{The initial prompt}{section.4}% 16
+\BOOKMARK [2][-]{subsection.4.3}{The KCM analysis prompt}{section.4}% 17
+\BOOKMARK [2][-]{subsection.4.4}{The COnCUR app}{section.4}% 18
+\BOOKMARK [1][-]{section.5}{Interpreting the results}{}% 19
+\BOOKMARK [2][-]{subsection.5.1}{Interpreting the centrality indexes}{section.5}% 20
+\BOOKMARK [1][-]{appendix.A}{Lexicon}{}% 21
+\BOOKMARK [1][-]{appendix.B}{How to define the knowledge components list}{}% 22
+\BOOKMARK [1][-]{appendix.C}{How to interpret and assign taxonomy levels}{}% 23
+\BOOKMARK [1][-]{appendix.D}{How to identify ILO}{}% 24
+\BOOKMARK [1][-]{appendix.E}{How to identify TLA}{}% 25
+\BOOKMARK [1][-]{appendix.F}{Debugging}{}% 26
+\BOOKMARK [1][-]{appendix.G}{Bibliography}{}% 27

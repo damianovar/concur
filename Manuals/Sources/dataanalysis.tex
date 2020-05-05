@@ -1,54 +1,87 @@
-\section{Analysing the data}
-\label{sec:analysing_the_data}
+\section{Analysing the data} \label{sec:analysing_the_data}
 
 \subsection{Launching Matlab}
 
-Note that to launch the CITE app below one needs Matlab 2019a or a higher version. The KCM analysis part, instead, requires Matlab 2018a or a higher version.
+To open the COnCUR app, Matlab 2019a or later is required. The KCM analysis
+part, instead, requires Matlab 2018a or a higher version.
 
-Once Matlab is launched, one shall change the directory in the command window to the folder "Scripts" (cf.\ Figure~\ref{fig:file-structure-base-folder}). Once there, execute \texttt{main.m}.
+Once Matlab is launched, navigate to the ``Scripts'' folder in Matlab (cf.\
+Figure~\ref{fig:file-structure-base-folder}). Once there, execute
+\texttt{main.m}.
 
 \subsection{The initial prompt}
 
-Launching \texttt{main.m} will initially produce a series of debug messages, and then a prompt like the one in Figure~\ref{fig:main-menu}.
+Launching \texttt{main.m} and waiting a few moments opens a prompt like the
+one in Listing~\ref{lst:main-menu}.
 
-\begin{figure}[!htbp]
-	\centering
-	\includegraphics[width = 0.8\textwidth]{main-menu}
-	\caption{Main menu that one obtains by launching \texttt{main.m}.}
-	\label{fig:main-menu}
-\end{figure}
+\begin{lstlisting}[caption=The main menu.,label=lst:main-menu]
+Main Menu: what would you like to do? Actions available:
+1 - select a full program to analyze (currently loaded: LTU-MachineElements-2019)
+2 - plot the selected program (LTU-MachineElements-2019)
+3 - open the COnCUR app
+4 - select which KCM you want to analyze
+5 - show the currently selected KCM  (now: M0009T, M0012T, M0013T, M7007T, T0015T)
+6 - analyze the currently selected KCM  (now: M0009T, M0012T, M0013T, M7007T, T0015T)
+7 - generate a report of the currently selected program (LTU-MachineElements-2019)
+8 - list the editable parameters
+9 - change the parameters
+10 - exit COnCUR
+your choice: 
+\end{lstlisting}
 
 The most interesting (and not self-explaining) items are:
 %
 \begin{itemize}
-	\item ``plot the selected program'', that will produce a figure that summarizes which course connects with which other in terms of \acp{KC}. Note that the suite will assign all the prerequisite \acp{KC} that are not taught by any course to an artificial ``prerequisites'' course. Note also that the plot is explorable - in the sense that clicking on the various arrows will expand which \acp{KC} form the connections;
-	\item ``open the CITE app'' - for this item see Section~\ref{ssec:the_cite_app};
-	\item ``analyse the currently selected KCM'' - for this item see Section~\ref{ssec:the_kcm_analysis_prompt}.
+\item ``plot the selected program'', that will produce a figure that
+	summarizes which course connects with which other in terms of
+	\acp{KC}. Note that the suite will assign all the
+	prerequisite \acp{KC} that are not taught by any course to an
+	artificial ``prerequisites'' course. Note also that the plot is
+	explorable - in the sense that clicking on the various arrows will
+	expand which \acp{KC} form the connections; 
+\item ``open the COnCUR app'' - for this item see
+	Section~\ref{ssec:the_cite_app};
+\item ``analyse the currently selected KCM'' - for this item see
+	Section~\ref{ssec:the_kcm_analysis_prompt}.
 \end{itemize}
 
 
 \subsection{The KCM analysis prompt}
 \label{ssec:the_kcm_analysis_prompt}
 
-Selecting to analyse the currently selected KCM will produce a prompt like the one in Figure~\ref{fig:KCM-analysis-menu}.
+Selecting to analyze the currently selected KCM will produce a prompt like
+the one in Listing~\ref{lst:KCM-analysis-menu}.
 
-\begin{figure}[!htbp]
-	\centering
-	\includegraphics[width = 0.8\textwidth]{KCM-analysis-menu}
-	\caption{Menu that one obtains by launching an analysis of the currently selected KCM.}
-	\label{fig:KCM-analysis-menu}
-\end{figure}
+\begin{lstlisting}[caption=Menu that one obtains by launching an analysis of the currently selected KCM.,label=lst:KCM-analysis-menu]
+KCM Analysis Menu: what would you like to do? Actions available:
+1 - list the available centrality indices
+2 - select centrality index  (now: betweenness)
+3 - plot the centrality indexes
+4 - list the most central prerequisite KCs
+5 - list the most central developed KCs
+6 - exit the KCM analysis tool
+your choice: 
+\end{lstlisting}
 
-The most interesting (and not self-explaining) items are:
-%
-\begin{itemize}
-	\item ``plot the KCG'', that will open the CITE app (thus check Section~\ref{ssec:the_cite_app} for this item);
-	\item ``plot the centrality indexes'', that will produce a figure that should be interpreted as suggested in Section~\ref{sec:interpreting_the_results}.
-\end{itemize}
+The most interesting (and not self-explaining) items is ``plot the
+centrality indexes'', which produces a figure that should be interpreted as
+suggested in Section~\ref{sec:interpreting_the_results}.
 
-\subsection{The CITE app}
+\subsection{The COnCUR app}
 \label{ssec:the_cite_app}
 
-Once the app is launched, you will get a blank graph plot, and a list of courses on the right. Selecting the desired courses with the mouse (shift+click) and then pressing the ``Plot'' button will produce an other explorable plot. Here clicking on the various nodes will highlight connections. Different colors are also placeholders for different taxonomical levels. Clicking the ``Show Structural Problems'' item will moreover highlight structural issues in the \ac{KCG}, that may be either of a temporal structure (i.e., a course assumes that a prerequisite \ac{KC} has been taught, but it has actually been taught at a later course) or taxonomical level structure (i.e., one assumes that a prerequisite has been previously taught at a certain level, but actually it has been taught at a lower level).
-
-
+Once the app is launched, you are presented a blank graph plot with a list of
+courses on the right. Select the course you would like to visualize by
+clicking on it. Use shift-click to select a range of courses and
+control-click (command-click on Mac OS) to select a set of courses. Pressing
+the ``Plot'' button generates an explorable plot using the \acp{KCM} of the
+selected courses. Clicking on a node highlights its connections. The colors
+of the connections represent different taxonomical levels. Checking the
+``Show Structural Problems Only'' box before plotting will hide everything
+but structural issues in the \ac{KCG}, that may be either of a temporal
+structure (i.e., a course assumes that a prerequisite \ac{KC} has been
+taught, but it has actually been taught at a later course) or taxonomical
+level structure (i.e., one assumes that a prerequisite has been previously
+taught at a certain level, but actually it has been taught at a lower level).
+The types of structural issues to reveal can be selected in the same way as
+the courses to include in the plot.
